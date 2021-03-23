@@ -142,7 +142,12 @@ async function fetchJson(url) {
 }
 
 function extractConferenceName(jvbJson, confId) {
-    return jvbJson.conferences[confId].name.split('@')[0];
+    const fullName = jvbJson.conferences[confId].name;
+    if (name) {
+        return fullName.split('@')[0];
+    } else {
+        return "<no name set>"
+    }
 }
 
 function createIdentityMessage(state) {
